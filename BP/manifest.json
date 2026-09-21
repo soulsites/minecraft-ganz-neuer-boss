@@ -4,20 +4,20 @@
     "name": "Void Reaper Boss (BP)",
     "description": "Fügt den benutzerdefinierten Boss 'Void Reaper' hinzu.",
     "uuid": "c05de6b4-e32e-407d-9257-f20e0bb610f9",
-    "version": [1, 0, 0],
+    "version": [1, 0, 1],
     "min_engine_version": [1, 20, 0]
   },
   "modules": [
     {
       "type": "data",
       "uuid": "6a0bee6f-20fd-4c99-abea-4a2a49ac7f98",
-      "version": [1, 0, 0]
+      "version": [1, 0, 1]
     }
   ],
   "dependencies": [
     {
       "uuid": "4800f1e0-5751-4d48-8915-4a6510a9962e",
-      "version": [1, 0, 0]
+      "version": [1, 0, 1]
     }
   ]
 }

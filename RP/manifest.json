@@ -4,20 +4,20 @@
     "name": "Void Reaper Boss (RP)",
     "description": "Modell, Textur und Animationen für den Boss 'Void Reaper'.",
     "uuid": "4800f1e0-5751-4d48-8915-4a6510a9962e",
-    "version": [1, 0, 0],
+    "version": [1, 0, 1],
     "min_engine_version": [1, 20, 0]
   },
   "modules": [
     {
       "type": "resources",
       "uuid": "220e5e97-d941-4168-86c5-33ed445e37d7",
-      "version": [1, 0, 0]
+      "version": [1, 0, 1]
     }
   ],
   "dependencies": [
     {
       "uuid": "c05de6b4-e32e-407d-9257-f20e0bb610f9",
-      "version": [1, 0, 0]
+      "version": [1, 0, 1]
     }
   ]
 }

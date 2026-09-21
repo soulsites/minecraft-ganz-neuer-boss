@@ -44,9 +44,26 @@ Die Funktion räumt vorher den Baubereich frei (21×14×21 Blöcke), du kannst s
    - **Cheats aktivieren** (nötig für `/function endfestung_bauen` und `/summon`)
 4. Welt starten, ins End reisen, `/function endfestung_bauen` ausführen und den Boss testen
 
+## Animationen
+
+Eigene Animationen statt Standardpose (`RP/animations/`, `RP/animation_controllers/`):
+
+- **Idle**: leichtes Auf-und-Ab-Wippen + Kopfbewegung
+- **Walk**: Arm-/Beinschwung, aktiviert automatisch ab `query.modified_move_speed > 0.05`
+- **Attack**: Armschwung nach vorn, gesteuert über `query.attack_time` (läuft bei jedem Angriff)
+
+## Versionierung (wichtig für den Import auf dem Handy!)
+
+Minecraft erkennt ein erneutes `.mcaddon` nur als Update, wenn sich die Version in `BP/manifest.json` und `RP/manifest.json` erhöht hat – bei gleicher Version wird der Import sonst ignoriert oder schlägt fehl. Deshalb vor jedem neuen Build:
+
+```bash
+python3 scripts/bump_version.py
+```
+
+Das erhöht Header-, Modul- und Dependency-Version in beiden Manifesten synchron um 1 (aktuell: `1.0.1`). Danach wie gewohnt neu zippen.
+
 ## Weiterentwicklung (nächste Schritte)
 
-- Individuelle Animationen (`animations/` + `animation_controllers/`) statt Standardpose
 - Eigenes Icon (`pack_icon.png`) für beide Packs
 - Weitere Phasen/Angriffe (z.B. Teleportation, Void-Projektile statt Standard-Pfeile)
 - Eigene Textur/Modell verfeinern (aktuell ein einfaches Platzhalter-Design)

@@ -10,6 +10,16 @@
       "spawn_egg": {
         "base_color": "#1b0f2b",
         "overlay_color": "#8a2be2"
+      },
+      "animations": {
+        "idle": "animation.void_reaper.idle",
+        "walk": "animation.void_reaper.walk",
+        "attack": "animation.void_reaper.attack",
+        "move_controller": "controller.animation.void_reaper.move",
+        "attack_controller": "controller.animation.void_reaper.attack"
+      },
+      "scripts": {
+        "animate": ["move_controller", "attack_controller"]
       }
     }
   }
