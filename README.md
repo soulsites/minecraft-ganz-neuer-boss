@@ -1,42 +1,61 @@
 # Minecraft Boss Add-on: Void Reaper
 
-Standard-Bedrock-Add-on mit einem eigenen Boss: **Void Reaper** (`wedel:void_reaper`).
+Standard-Bedrock-Add-on mit eigenem Boss **Void Reaper** (`wedel:void_reaper`), der im **End** in der Struktur **Endfestung** haust.
 
-## Struktur
+## Struktur (Ordner)
 
-- `BP/` – Behavior Pack (Stats, KI, Loot, Boss-Leiste)
+- `BP/` – Behavior Pack (Stats, KI/Fähigkeiten, Loot, Boss-Leiste, Endfestung-Funktion)
 - `RP/` – Resource Pack (Modell, Textur, Spawn-Ei, Übersetzungen)
 - `dist/VoidReaperBoss.mcaddon` – fertige Datei zum Download/Import
 
-## Boss-Eckdaten
+## Boss-Fähigkeiten
 
-- 200 HP, Nahkampf (12 Schaden), Boss-Health-Bar (verdunkelt den Himmel)
-- Loot: Netherite-Schrott + Smaragde
-- Spawn-Ei: "Void Reaper Spawn Ei" (im Kreativ-Inventar)
-- Spawnen per Befehl: `/summon wedel:void_reaper`
+- **Nahkampf**: 12 Schaden pro Treffer (Grundphase)
+- **Fernkampf ("Void-Pfeile")**: schießt Pfeile bis auf 25 Blöcke Entfernung – trifft dich also auch, wenn du dich hochbaust und mit dem Bogen schießt
+- **Sprungangriff**: springt gezielt zum Ziel, auch auf kleine Erhöhungen/Türme
+- **Wut-Phase (ab 50 % HP)**: wird schneller, macht mehr Schaden (18 statt 12), schießt schneller und in Salven (3 Pfeile)
+- **Flächenangriff** (nur Wut-Phase): trifft alle Spieler im Nahbereich gleichzeitig – bestraft dichtes Herumstehen
+- 200 HP, Boss-Health-Bar (verdunkelt den Himmel), Loot: Netherite-Schrott + Smaragde
+
+Reines Hochbauen + Dauerbeschuss mit dem Bogen reicht also nicht mehr aus – der Boss schießt zurück und kann zu dir hochspringen.
+
+## Die Struktur: Endfestung
+
+- Liegt im **End** (thematisch passend zum Void-Reaper-Boss)
+- Wird per Funktion direkt um den Spieler herum gebaut: End-Stein-Ziegel-Mauern, 4 Purpur-Ecktürme mit End-Ruten als Leuchtfeuer, Zinnen, eine Obsidian-Arena-Plattform in der Mitte
+- Der Void Reaper **spawnt automatisch** in der Mitte der Endfestung, sobald die Struktur gebaut wird – es gibt aktuell keinen anderen Weg, an den Boss zu kommen (kein natürliches Spawnen), er ist also fest an die Endfestung gebunden
+
+### Endfestung bauen & Boss spawnen
+
+1. Ins **End** reisen (Enderauge/Endportal) und **Cheats aktivieren**
+2. An einer möglichst freien Stelle (nicht direkt auf einer Obsidian-Säule) stehen
+3. Befehl ausführen: `/function endfestung_bauen`
+4. Die Arena wird um dich herum gebaut, danach erscheint der Void Reaper in der Mitte
+
+Die Funktion räumt vorher den Baubereich frei (21×14×21 Blöcke), du kannst sie also auch mehrfach ausführen, um die Arena neu zu bauen.
 
 ## Testen auf Android
 
-1. `dist/VoidReaperBoss.mcaddon` auf das Android-Gerät übertragen (z.B. per Cloud-Ordner, USB, E-Mail an dich selbst).
-2. Datei antippen → öffnet sich automatisch in Minecraft und importiert BP + RP.
+1. `dist/VoidReaperBoss.mcaddon` auf das Android-Gerät übertragen (z.B. per Cloud-Ordner, USB, E-Mail an dich selbst)
+2. Datei antippen → öffnet sich automatisch in Minecraft und importiert BP + RP
 3. In den Welteinstellungen eines neuen/bestehenden Welt-Editors:
    - Behavior Pack "Void Reaper Boss (BP)" aktivieren
    - Resource Pack "Void Reaper Boss (RP)" aktivieren
-   - **Cheats aktivieren**, um `/summon wedel:void_reaper` nutzen zu können
-4. Welt starten und Boss per Spawn-Ei oder Befehl testen.
+   - **Cheats aktivieren** (nötig für `/function endfestung_bauen` und `/summon`)
+4. Welt starten, ins End reisen, `/function endfestung_bauen` ausführen und den Boss testen
 
 ## Weiterentwicklung (nächste Schritte)
 
-- Eigene Angriffsmuster (Fernkampf, Phasen bei niedriger HP) über `component_groups` + Events
 - Individuelle Animationen (`animations/` + `animation_controllers/`) statt Standardpose
 - Eigenes Icon (`pack_icon.png`) für beide Packs
-- Spawn-Regeln (`BP/spawn_rules/`) für natürliches Spawnen in bestimmten Biomen
+- Weitere Phasen/Angriffe (z.B. Teleportation, Void-Projektile statt Standard-Pfeile)
 - Eigene Textur/Modell verfeinern (aktuell ein einfaches Platzhalter-Design)
+- Natürliches Erscheinen der Endfestung bei der Weltgenerierung (aktuell bewusst nur per Funktion, damit es zuverlässig auf dem Handy testbar bleibt)
 
 ## Add-on neu bauen (falls Dateien geändert werden)
 
 ```bash
-cd dist && rm -f VoidReaperBoss.mcaddon && zip -r VoidReaperBoss.mcaddon ../BP ../RP -x ".*"
+cd /home/user/minecraft-ganz-neuer-boss
+rm -f dist/VoidReaperBoss.mcaddon
+zip -r dist/VoidReaperBoss.mcaddon BP RP -x ".*"
 ```
-
-(oder wie im Repo: `zip -r dist/VoidReaperBoss.mcaddon BP RP -x ".*"` vom Projekt-Root aus)

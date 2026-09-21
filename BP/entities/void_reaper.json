@@ -7,6 +7,39 @@
       "is_summonable": true,
       "is_experimental": false
     },
+    "component_groups": {
+      "wedel:enraged": {
+        "minecraft:movement": { "value": 0.42 },
+        "minecraft:attack": { "damage": 18 },
+        "minecraft:scale": { "value": 1.15 },
+        "minecraft:behavior.ranged_attack": {
+          "priority": 2,
+          "attack_interval_min": 1,
+          "attack_interval_max": 2,
+          "attack_radius": 30,
+          "burst_shots": 3,
+          "burst_interval": 0.3,
+          "speed_multiplier": 1.0,
+          "x_max_rotation": 30,
+          "y_max_head_rotation": 30
+        },
+        "minecraft:area_attack": {
+          "damage_range": 3.5,
+          "damage_per_attack": 9,
+          "attack_interval": 5,
+          "entity_types": [
+            {
+              "filters": {
+                "test": "is_family",
+                "subject": "other",
+                "value": "player"
+              },
+              "max_dist": 3.5
+            }
+          ]
+        }
+      }
+    },
     "components": {
       "minecraft:type_family": {
         "family": ["void_reaper", "monster", "mob"]
@@ -34,8 +67,26 @@
         "is_pushable": false,
         "is_pushable_by_piston": false
       },
-      "minecraft:behavior.melee_attack": {
+      "minecraft:shooter": {
+        "def": "minecraft:arrow"
+      },
+      "minecraft:behavior.ranged_attack": {
         "priority": 2,
+        "attack_interval_min": 2,
+        "attack_interval_max": 4,
+        "attack_radius": 25,
+        "burst_shots": 1,
+        "speed_multiplier": 1.0,
+        "x_max_rotation": 30,
+        "y_max_head_rotation": 30
+      },
+      "minecraft:behavior.leap_at_target": {
+        "priority": 1,
+        "yd": 0.6,
+        "must_be_on_ground": true
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 4,
         "speed_multiplier": 1.1,
         "track_target": true,
         "attack_types": "melee"
@@ -66,8 +117,32 @@
           }
         ]
       },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "cause": "all",
+            "on_damage": {
+              "filters": {
+                "test": "actor_health",
+                "subject": "self",
+                "operator": "<=",
+                "value": 100
+              },
+              "event": "wedel:enrage",
+              "target": "self"
+            }
+          }
+        ]
+      },
       "minecraft:loot": {
         "table": "loot_tables/entities/void_reaper.json"
+      }
+    },
+    "events": {
+      "wedel:enrage": {
+        "add": {
+          "component_groups": ["wedel:enraged"]
+        }
       }
     }
   }
