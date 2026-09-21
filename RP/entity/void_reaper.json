@@ -1,0 +1,16 @@
+{
+  "format_version": "1.20.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wedel:void_reaper",
+      "materials": { "default": "entity_alphatest" },
+      "textures": { "default": "textures/entity/void_reaper" },
+      "geometry": { "default": "geometry.void_reaper" },
+      "render_controllers": ["controller.render.void_reaper"],
+      "spawn_egg": {
+        "base_color": "#1b0f2b",
+        "overlay_color": "#8a2be2"
+      }
+    }
+  }
+}

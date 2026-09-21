@@ -1,0 +1,74 @@
+{
+  "format_version": "1.20.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "wedel:void_reaper",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["void_reaper", "monster", "mob"]
+      },
+      "minecraft:collision_box": { "width": 1.2, "height": 2.6 },
+      "minecraft:health": { "value": 200, "max": 200 },
+      "minecraft:boss": {
+        "should_darken_sky": true,
+        "hud_range": 55
+      },
+      "minecraft:nameable": {},
+      "minecraft:movement": { "value": 0.28 },
+      "minecraft:movement.basic": {},
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:attack": { "damage": 12 },
+      "minecraft:knockback_resistance": { "value": 0.8 },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": false
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 2,
+        "speed_multiplier": 1.1,
+        "track_target": true,
+        "attack_types": "melee"
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 12
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 3,
+        "must_see": true,
+        "reselect_targets": true,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 40
+          }
+        ]
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/void_reaper.json"
+      }
+    }
+  }
+}
