@@ -1,0 +1,85 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.end_lord.idle": {
+      "loop": true,
+      "animation_length": 3.0,
+      "bones": {
+        "body": {
+          "position": {
+            "0.0": [0, 0, 0],
+            "1.5": [0, 1.5, 0],
+            "3.0": [0, 0, 0]
+          }
+        },
+        "crown": {
+          "rotation": {
+            "0.0": [0, -4, 0],
+            "1.5": [0, 4, 0],
+            "3.0": [0, -4, 0]
+          }
+        },
+        "right_arms": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "1.5": [0, 0, -6],
+            "3.0": [0, 0, 0]
+          }
+        },
+        "left_arms": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "1.5": [0, 0, 6],
+            "3.0": [0, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.end_lord.walk": {
+      "loop": true,
+      "animation_length": 1.0,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [6, 0, 0],
+            "1.0": [6, 0, 0]
+          }
+        },
+        "right_arms": {
+          "rotation": {
+            "0.0": [0, -15, 0],
+            "0.5": [0, 15, 0],
+            "1.0": [0, -15, 0]
+          }
+        },
+        "left_arms": {
+          "rotation": {
+            "0.0": [0, -15, 0],
+            "0.5": [0, 15, 0],
+            "1.0": [0, -15, 0]
+          }
+        }
+      }
+    },
+    "animation.end_lord.attack": {
+      "loop": false,
+      "animation_length": 0.5,
+      "bones": {
+        "right_arms": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.2": [0, 60, 0],
+            "0.5": [0, 0, 0]
+          }
+        },
+        "left_arms": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.2": [0, -60, 0],
+            "0.5": [0, 0, 0]
+          }
+        }
+      }
+    }
+  }
+}
