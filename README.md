@@ -1,14 +1,14 @@
-# Minecraft Boss Add-on: Endboss
+# Minecraft Boss Add-on: End Lord
 
-Standard-Bedrock-Add-on mit eigenem Boss **Endboss** (`wedel:endboss`). Neustart auf Basis des Blockbench-Modells `blockbench/endboss_end_design_v2.bbmodel`.
+Standard-Bedrock-Add-on mit eigenem Boss **End Lord** (`wedel:end_lord`) auf Basis des Blockbench-Modells `blockbench/end_lord_boss.bbmodel`.
 
 ## Struktur (Ordner)
 
 - `BP/` – Behavior Pack (Stats, KI, Loot, Boss-Leiste)
 - `RP/` – Resource Pack (Modell, Textur, Animationen, Spawn-Ei, Übersetzungen)
 - `blockbench/` – Quell-Modell (`.bbmodel`) zum Weiterbearbeiten in Blockbench
-- `dist/Endboss.mcaddon` – fertige Datei zum Download/Import
-- `scripts/bump_version.py` – Versionen in beiden Manifesten erhöhen
+- `dist/EndLordBoss_v<Version>.mcaddon` – fertige Datei zum Download/Import
+- `scripts/build.py` – Version +1 und `.mcaddon` bauen
 
 ## Boss (Grundversion)
 
@@ -19,28 +19,26 @@ Standard-Bedrock-Add-on mit eigenem Boss **Endboss** (`wedel:endboss`). Neustart
 
 ## Modell & Animationen
 
-- Bones (aus den Cubes des `.bbmodel` gebildet): `body`, `head`, `left_arm`, `right_arm`, `left_leg`, `right_leg`
-- **Idle**: leichtes Wippen + Kopfbewegung
-- **Walk**: Arm-/Beinschwung ab `query.modified_move_speed > 0.05`
-- **Attack**: Armschlag nach vorn über `query.attack_time`
+- Bones (aus den Cubes des `.bbmodel` gebildet): `body`, `crown`, `left_arms`, `right_arms` (je 3 Void-Arme mit Endstein-Fäusten)
+- Modell um 10 Pixel angehoben, damit der Schwanz-Edelstein nicht im Boden steckt
+- **Idle**: Schweben + Kronen-Drehung + Armwippen
+- **Walk**: Vorneigen + Armschwung ab `query.modified_move_speed > 0.05`
+- **Attack**: Arme schlagen nach vorn über `query.attack_time`
 
 ## Testen auf Android
 
-1. `dist/Endboss.mcaddon` aufs Gerät übertragen und antippen → Import in Minecraft
-2. In den Welteinstellungen "Endboss (BP)" und "Endboss (RP)" aktivieren, **Cheats aktivieren**
-3. Spawnen: `/summon wedel:endboss` oder per Spawn-Ei
+1. `dist/EndLordBoss_v<Version>.mcaddon` aufs Gerät übertragen und antippen → Import in Minecraft
+2. In den Welteinstellungen "End Lord Boss (BP) v…" und "End Lord Boss (RP) v…" aktivieren, **Cheats aktivieren**
+3. Spawnen: `/summon wedel:end_lord` oder per Spawn-Ei
 
-## Versionierung
+## Versionierung & Bauen
 
-Minecraft erkennt ein erneutes `.mcaddon` nur als Update, wenn die Version in beiden Manifesten erhöht wurde. Vor jedem neuen Build:
-
-```bash
-python3 scripts/bump_version.py
-```
-
-## Add-on neu bauen
+Minecraft erkennt ein erneutes `.mcaddon` nur als Update, wenn die Version höher ist. Deshalb **vor jedem neuen Import**:
 
 ```bash
-rm -f dist/Endboss.mcaddon
-zip -r dist/Endboss.mcaddon BP RP -x ".*"
+python3 scripts/build.py
 ```
+
+- erhöht die Version in beiden Manifesten um 1 (Header, Module, Dependencies)
+- schreibt die Version in den Pack-Namen (z.B. „End Lord Boss (BP) v1.0.1“), damit man sie in Minecraft erkennt
+- baut `dist/EndLordBoss_v<Version>.mcaddon` und löscht ältere Builds

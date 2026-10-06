@@ -2,16 +2,16 @@
   "format_version": "1.20.0",
   "minecraft:entity": {
     "description": {
-      "identifier": "wedel:endboss",
+      "identifier": "wedel:end_lord",
       "is_spawnable": true,
       "is_summonable": true,
       "is_experimental": false
     },
     "components": {
       "minecraft:type_family": {
-        "family": ["endboss", "monster", "mob"]
+        "family": ["end_lord", "monster", "mob"]
       },
-      "minecraft:collision_box": { "width": 2.0, "height": 2.4 },
+      "minecraft:collision_box": { "width": 2.0, "height": 3.0 },
       "minecraft:health": { "value": 200, "max": 200 },
       "minecraft:boss": {
         "should_darken_sky": true,
@@ -65,7 +65,7 @@
         ]
       },
       "minecraft:loot": {
-        "table": "loot_tables/entities/endboss.json"
+        "table": "loot_tables/entities/end_lord.json"
       }
     }
   }

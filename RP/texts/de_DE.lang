@@ -1,2 +1,2 @@
-entity.wedel:endboss.name=Endboss
-item.spawn_egg.entity.wedel:endboss.name=Endboss-Spawn-Ei
+entity.wedel:end_lord.name=End Lord
+item.spawn_egg.entity.wedel:end_lord.name=End-Lord-Spawn-Ei

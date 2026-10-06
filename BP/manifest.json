@@ -1,23 +1,39 @@
 {
   "format_version": 2,
   "header": {
-    "name": "Endboss (BP)",
-    "description": "Fügt den benutzerdefinierten Boss 'Endboss' hinzu.",
+    "name": "End Lord Boss (BP) v1.0.1",
+    "description": "Fügt den Boss 'End Lord' hinzu.",
     "uuid": "9a616a71-8c52-4a85-8379-2a8c3832ba0c",
-    "version": [1, 0, 0],
-    "min_engine_version": [1, 20, 0]
+    "version": [
+      1,
+      0,
+      1
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      0
+    ]
   },
   "modules": [
     {
       "type": "data",
       "uuid": "e677287b-5ee4-4714-9120-689e578d221e",
-      "version": [1, 0, 0]
+      "version": [
+        1,
+        0,
+        1
+      ]
     }
   ],
   "dependencies": [
     {
       "uuid": "e2df77d1-4d90-4a8c-a91d-c8f3ca899cc4",
-      "version": [1, 0, 0]
+      "version": [
+        1,
+        0,
+        1
+      ]
     }
   ]
 }

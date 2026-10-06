@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wedel:end_lord",
+      "materials": { "default": "entity_alphatest" },
+      "textures": { "default": "textures/entity/end_lord" },
+      "geometry": { "default": "geometry.end_lord" },
+      "render_controllers": ["controller.render.end_lord"],
+      "spawn_egg": {
+        "base_color": "#1a1226",
+        "overlay_color": "#e0d68a"
+      },
+      "animations": {
+        "idle": "animation.end_lord.idle",
+        "walk": "animation.end_lord.walk",
+        "attack": "animation.end_lord.attack",
+        "move_controller": "controller.animation.end_lord.move",
+        "attack_controller": "controller.animation.end_lord.attack"
+      },
+      "scripts": {
+        "animate": ["move_controller", "attack_controller"]
+      }
+    }
+  }
+}
