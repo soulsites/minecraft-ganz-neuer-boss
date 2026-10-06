@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "wedel:endboss",
+      "materials": { "default": "entity_alphatest" },
+      "textures": { "default": "textures/entity/endboss" },
+      "geometry": { "default": "geometry.endboss" },
+      "render_controllers": ["controller.render.endboss"],
+      "spawn_egg": {
+        "base_color": "#161022",
+        "overlay_color": "#c27bd6"
+      },
+      "animations": {
+        "idle": "animation.endboss.idle",
+        "walk": "animation.endboss.walk",
+        "attack": "animation.endboss.attack",
+        "move_controller": "controller.animation.endboss.move",
+        "attack_controller": "controller.animation.endboss.attack"
+      },
+      "scripts": {
+        "animate": ["move_controller", "attack_controller"]
+      }
+    }
+  }
+}

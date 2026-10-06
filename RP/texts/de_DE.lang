@@ -1,2 +1,2 @@
-entity.wedel:void_reaper.name=Void Reaper
-item.spawn_egg.entity.wedel:void_reaper.name=Void-Reaper-Spawn-Ei
+entity.wedel:endboss.name=Endboss
+item.spawn_egg.entity.wedel:endboss.name=Endboss-Spawn-Ei
